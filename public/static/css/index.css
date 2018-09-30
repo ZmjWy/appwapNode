@@ -1,0 +1,298 @@
+.new-container {
+    overflow: hidden;
+}
+.new-container .tab-list {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: auto;
+    right: auto;
+    overflow: hidden;
+    height: 1.7rem;
+    background-color: #fff;
+    border-bottom: 1px solid #efefef;
+}
+.new-container .tab-list .home-logo {
+    width: 100%;
+    height: 0.8rem;
+    background: #f00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.new-container .tab-list .home-logo img {
+    width: 2rem;
+}
+.new-container .tab-list ul {
+    padding: 0 0.25rem;
+}
+.new-container .tab-list ul li {
+    float: left;
+    font-size: 0.3rem;
+    padding: 0 0.12rem;
+}
+.new-container .tab-list ul .tabActive {
+    color: #f00;
+}
+.new-container .content-list {
+    background: #fff;
+    /*min-height: 100vh;*/
+
+}
+.new-container .content-list .new-list {
+    width: 100%;
+}
+.new-container .content-list .new-list > div {
+    border-bottom: 1px solid #efefef;
+    display: block;
+    padding: 0.25rem;
+    text-decoration: none;
+    color: #000;
+}
+.new-container .content-list .new-list > div h3 {
+    font-size: 0.34rem;
+    color: #1e1e1e;
+    line-height: 0.44rem;
+    padding-bottom: 0.15rem;
+}
+.new-container .content-list .new-list > div .signColor {
+    color: #969393;
+}
+.new-container .content-list .new-list > div .new-img {
+    padding-bottom: 0.25rem;
+}
+.new-container .content-list .new-list > div .new-img img {
+    display: block;
+    float: left;
+    margin-right: 0.82%;
+    width: 32.5714%;
+    height: 1.74rem;
+}
+.new-container .content-list .new-list > div .new-img img[lazy=loading] {
+    display: block;
+    float: left;
+    margin-right: 0.82%;
+    width: 32.5714%;
+    height: 1.74rem;
+    background-image: url("../../images/imgloading.jpg");
+    background-repeat: no-repeat;
+}
+.new-container .content-list .new-list > div .new-img img:last-child {
+    margin-right: 0;
+}
+.new-container .content-list .new-list > div .new-option > div {
+    float: left;
+    line-height: 1;
+}
+.new-container .content-list .new-list > div .new-option > div img {
+    width: 0.55rem;
+    margin-right: 0.12rem;
+    vertical-align: middle;
+}
+.new-container .content-list .new-list > div .new-option > div span {
+    display: inline-block;
+    font-size: 0.24rem;
+    color: #928d8d;
+}
+.new-container .content-list .new-list > div .new-option > img {
+    display: block;
+    float: right;
+    width: 0.36rem;
+    margin-top: 2px;
+}
+.new-container .content-list .new-list > div .newChangeOne .new-change-left {
+    width: 61.4285%;
+    float: left;
+}
+.new-container .content-list .new-list > div .newChangeOne .new-change-left h3 {
+    width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    padding-bottom: 0;
+    height: 1.35rem;
+}
+.new-container .content-list .new-list > div .newChangeOne .new-change-left .new-option {
+    margin-top: 5px;
+}
+.new-container .content-list .new-list > div .newChangeOne .new-img {
+    width: 32.5714%;
+    float: right;
+    padding-bottom: 0;
+}
+.new-container .content-list .new-list > div .newChangeOne .new-img img {
+    width: 100%;
+}
+.new-container .content-list .new-list > div .newChangeOne .new-img img[lazy=loading] {
+    width: 100%;
+    background-image: url("../../images/imgloading.jpg");
+    background-repeat: no-repeat;
+}
+.new-container .content-list .new-list .super-bag {
+    width: 100%;
+    padding: 0;
+    border-top: 0.2rem solid #eeeeee;
+    border-bottom: 0.2rem solid #eeeeee;
+}
+.new-container .content-list .new-list .super-bag img {
+    width: 100%;
+}
+.new-container .interest-modal {
+    /*display: none;*/
+
+    position: fixed;
+    top: 0;
+    left: auto;
+    right: auto;
+    z-index: 999;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(125, 125, 125, 0.35);
+}
+.new-container .interest-modal .interest-modal-box {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.new-container .interest-modal .interest-modal-box > div {
+    width: 7rem;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 0.39rem 0.3rem 0.15rem;
+}
+.new-container .interest-modal .interest-modal-box > div .interest-modal-tittle {
+    margin-bottom: 0.2rem;
+}
+.new-container .interest-modal .interest-modal-box > div .interest-modal-tittle p {
+    font-size: 0.28rem;
+    line-height: 0.58rem;
+    float: left;
+}
+.new-container .interest-modal .interest-modal-box > div .interest-modal-tittle button {
+    width: 1.75rem;
+    height: 0.58rem;
+    text-align: center;
+    line-height: 0.58rem;
+    display: block;
+    background-color: #db342d;
+    border-radius: 0.58rem;
+    outline: none;
+    border: none;
+    float: right;
+    font-size: 0.26rem;
+    color: #fff;
+    letter-spacing: 0.03rem;
+}
+.new-container .interest-modal .interest-modal-box > div ul li {
+    width: 3rem;
+    height: 0.58rem;
+    text-align: center;
+    line-height: 0.56rem;
+    border-radius: 4px;
+    border: 1px solid #f1f1f1;
+    font-size: 0.26rem;
+    float: left;
+    margin: 0 0 0.3rem 0;
+}
+.new-container .interest-modal .interest-modal-box > div ul li:nth-of-type(even) {
+    float: right;
+}
+.new-container .interest-modal .interest-modal-box > div ul .interestOption {
+    border: 1px solid #f00;
+    color: #f00;
+}
+.new-container .super-modal {
+    position: fixed;
+    top: 0;
+    left: auto;
+    right: auto;
+    z-index: 999;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(125, 125, 125, 0.35);
+}
+.new-container .super-modal .super-modal-box {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.new-container .super-modal .super-modal-box > div {
+    width: 6rem;
+    border-radius: 8px;
+    background-color: #fff;
+}
+.new-container .super-modal .super-modal-box > div h3 {
+    font-size: 0.44rem;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    border-radius: 8px 8px 0 0;
+    background-color: #016abd;
+    letter-spacing: 0.08rem;
+}
+.new-container .super-modal .super-modal-box > div .super-img {
+    width: 100%;
+    height: 1.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.new-container .super-modal .super-modal-box > div .super-img img:nth-child(1) {
+    width: 0.48rem;
+    margin-right: 0.2rem;
+}
+.new-container .super-modal .super-modal-box > div .super-img img:nth-child(2) {
+    width: 1.34rem;
+}
+.new-container .super-modal .super-modal-box > div .super-get {
+    font-size: 0.26rem;
+    text-align: center;
+}
+.new-container .super-modal .super-modal-box > div .super-get span {
+    color: #ff0000;
+}
+.new-container .super-modal .super-modal-box > div .super-progress,
+.new-container .super-modal .super-modal-box > div ul {
+    width: 5.44rem;
+    margin: 0 auto;
+}
+.new-container .super-modal .super-modal-box > div .super-progress-num {
+    width: 5.44rem;
+    margin: 0 auto;
+    font-size: 0.22rem;
+    margin-bottom: 0.15rem;
+}
+.new-container .super-modal .super-modal-box > div .super-progress-num span:nth-child(1) {
+    float: left;
+    display: block;
+    color: #ff0000;
+}
+.new-container .super-modal .super-modal-box > div .super-progress-num span:nth-child(2) {
+    float: right;
+    display: block;
+}
+.new-container .super-modal .super-modal-box > div ul {
+    font-size: 0.26rem;
+    line-height: 0.45rem;
+}
+.new-container .super-modal .super-modal-box > div button {
+    display: block;
+    letter-spacing: 0.05rem;
+    width: 4rem;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    text-align: center;
+    border-radius: 0.8rem;
+    border: none;
+    outline: none;
+    background-color: #2088f9;
+    color: #fff;
+    margin: 0.3rem auto 0.35rem;
+}

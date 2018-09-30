@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!--<meta name="referrer" content="no-referrer" />-->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="keyword" content="花生、花生头条、头条">
+    <meta name="description" content="">
+    <title>花生头条</title>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?06c60801fcfbf039fb7ea4d05248eace";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cspan id='cnzz_stat_icon_1274684044'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1274684044' type='text/javascript'%3E%3C/script%3E"));</script>
+    <script type=text/javascript src='./static/js/fontsizeset.js'></script>
+    <script type=text/javascript src='./static/js/jquery.js'></script>
+    <script type=text/javascript src='./static/js/common.js'></script>
+    <link rel="stylesheet" href="./static/css/reset.css">
+    <link rel="stylesheet" href="./static/css/detail.css">
+    <style>
+        #cnzz_stat_icon_1274684044 {
+            width: 0;
+            height: 0;
+            display: block;
+            overflow: hidden;
+        }
+        #cnzz_stat_icon_1274684044 a{
+            color:#fff;
+            text-decoration: none;
+        }
+        a{
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+            -webkit-user-select: none;
+            -moz-user-focus: none;
+            -moz-user-select: none;
+        }
+        #prod_adv{
+            border-top: 1px solid #f2f1f1;
+            padding: 0.24rem 0;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="details-container" style="display: none;">
+        <div class="detail-content">
+            <h3 id="new-tittle"></h3>
+            <div class="detail-time">
+                <span id="new-org"></span>
+                <span id="new-org-time"></span>
+            </div>
+            <div class="detail-text"></div>
+            <div class="detail-origin">
+                <span id="new-org-text">
+
+                </span>
+            </div>
+            <div id="pre_adv" style="padding: 4px 0px; width: 100%;"></div>
+        </div>
+        <div class="down-load" style="display: none;">
+            <div class="news_part_all"></div>
+            <p>点击阅读全文</p>
+            <div class="down-load-translate">
+                <img src="images/down-load_03.png" alt="">
+                <img src="images/down-load_03.png" alt="">
+            </div>
+        </div>
+        <div class="cut-off-rule" id="test_adv_top"></div>
+        <div id="test_adv_985094" style="padding: 4px 0;" >
+        </div>
+        <div class="cut-off-rule" id="test_adv_bottom"></div>
+        <!--推荐阅读-->
+        <div class="detail-recommend" style="display:none;">
+            <h3 class="detail-recommend-h3">
+                <span>推荐阅读</span>
+            </h3>
+        </div>
+        <div style="padding: 0 0.3rem;">
+            <div id="prod_adv" style="padding: 12px 0;border-top: 1px solid #f2f1f1;;width: 100%;"></div>
+        </div>
+        <div class="cut-off-rule" id="optionList"></div>
+        <!--热门评论-->
+        <!--<div id="hot-comment" class="hot-comment" style="display: none;">-->
+            <!--<h3>-->
+                <!--<span></span>-->
+                <!--<span>热门评论</span>-->
+            <!--</h3>-->
+        <!--</div>-->
+        <!--最新评论-->
+        <div id="new-comment" class="hot-comment new-comment" style="margin-top: 0.7rem;">
+            <h3 class="new-comment-h3">
+                <span></span>
+                <span>最新评论</span>
+            </h3>
+        </div>
+        <div class="new-comment-num" style="padding: 0.5rem 0 0.8rem;border-top: 1px solid #ebebec;margin-top: 0.48rem;">
+            <img style="width: 3.1rem;display: block;margin: 0 auto;" src="images/not-comment.png" alt="">
+        </div>
+        <div class="mint-loadmore-bottom" style="margin-bottom: 0px; display: none;; background-color: rgb(243, 243, 243);">
+            <span style="display: flex; justify-content: center; align-items: center; background-color: rgb(243, 243, 243);">
+            <span class="loadmore-bottom-span" style="font-size: 0.3rem; color: rgb(170, 170, 170);">正在加載...</span></span>
+        </div>
+    </div>
+    <div id="change-width" style="width: 92%;height: 12rem;display: flex;justify-content: center;align-items: center;margin: 0 auto;">
+        <img style="width: 2rem;" src="images/loading_huasheng.gif" alt="">
+    </div>
+</div>
+<script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
+<script>
+    $(function(){
+        window.sogou_un = window.sogou_un || [];
+        var thisPage = {
+                moreLoad:false,
+                listener: true,
+                recommend: '',
+                hotMore: '',
+                hotMoreChlid: '',
+                infoData: {},
+                changeImg: '',
+                newChangeImg: '',
+                changeSpan: '',
+                newChangeSpan: '',
+                commentList: '',
+                newCommentList: '',
+                newLookStatus: '',
+                newMore: [],
+                total: 0,
+                newMoreList: '',
+                newChangeComment: [],
+                newCommentBack: '',
+                commentBack: '',
+                buildAdv: '',
+                prodAdv: '',
+                scrollNum: 0,
+                polling: false,
+                pollingNum: 1,
+                addTimer: '',
+                buildTimer: '',
+                getDataNum: 1,
+                created: function() {
+                    var that = this;
+                    var getString = new GetQueryString();
+                    this.getString = getString;
+                    // console.log(getString);
+                    this.getData(); // 详情页
+                    // this.getHotComment(getString.channelId, getString.titleId);
+                    // this.getNewComment(getString.channelId, getString.titleId, 0, '2', 'newMore'); // 最新评论
+                    // console.log(this);
+                    that.timer = setInterval(function () {
+                        if (that.polling && that.pollingNum < 5) {
+                            that.getData();
+                        } else {
+                            clearInterval(that.timer);
+                            if (that.pollingNum == 5) {
+                                toast('网络不给力，请稍后再试！');
+                            }
+                        }
+                    }, 3000);
+                },
+                getData: function (num) {
+                    // 初始化数据
+                    var that = this;
+                    $.ajax({
+                        url: ctx + '/search/search/wapdetail?id=' + this.getString.id,
+                        type: 'GET',
+                        dataType: 'jsonp',
+                        jsonp: "callback",
+                        jsonpCallback: "callback",
+                        success: function success(data) {
+                            console.log({"get": data});
+                            that.infoData = data;
+                            that.polling = false;
+                            if (data.status === 200) {
+                                that.polling = false;
+                                $('#new-tittle').text(data.items[0].title);
+                                $('#new-org').text('来源：'+data.items[0].source);
+                                $('#new-org-text').text('版权声明：本文内容的组织和采编均来自'+ data.items[0].source + '。')
+                                $('#new-org-time').text(data.items[0].pubdate.substring(4, 6) + "-" + data.items[0].pubdate.substring(6, 8) + "  " + data.items[0].pubdate.substring(8, 10) + ":" + data.items[0].pubdate.substring(10, 12));
+                                $('.detail-text').html(that.formatImg(data.items[0].content));
+                                if(that.getDataNum != 1 ){
+                                    that.recommend = '';
+                                    console.log($('.detail-recommend').children('a'))
+                                    $('.detail-recommend-h3').nextAll().remove();
+                                }
+                                if(data.similarity !== undefined && data.similarity.length > 0){
+                                    $('.details-container').show().siblings().hide();
+                                    $('.detail-recommend').show();
+                                    data.similarity.map(function(data, i){
+                                        that.buildAdv = '';
+                                        that.prodAdv = '';
+                                        if(i == 0){
+                                            that.buildAdv  = '<div id="build_adv" style="padding: 12px 0;border-top: 1px solid #f2f1f1;;width: 100%;"></div>';
+                                        }
+                                        if(i<3){
+                                            return(
+                                                that.recommend +=  '<a style="display: block;color: #000;text-decoration: none;" href="'+'detailInfo://coin/share?id=' + data.id + '&source=' + encodeURI(data.source) + '&sourceUrl=' + data.url + '&channelId=ceshipindaoId&titleId=ceshiwenzhangId&tel_num=22&title=' + encodeURI(data.title)+'">'+
+                                                '<div class="detail-recommend-list clearFix">'+
+                                                '<img src="'+ data.pics[0]+'" alt="">'+
+                                                '<div>'+
+                                                '<p>'+ that.cutString(data.title, 40)+'</p>'+
+                                                '<p>'+ data.pubdate.substring(0, 4) + "-" + data.pubdate.substring(4, 6) + "-" + data.pubdate.substring(6, 8) + "  " + data.pubdate.substring(8, 10) + ":" + data.pubdate.substring(10, 12) + ":" + data.pubdate.substring(12, 14)+'</p>'+
+                                                '</div>\n' +
+                                                '</div>\n' +
+                                                    that.buildAdv+
+                                                    that.prodAdv +
+                                                '</a>'
+                                            )
+                                        }else {
+                                            return false;
+                                        }
+                                    })
+                                    if(that.getDataNum == 1){
+                                        var test_adv = document.getElementById("test_adv_985094");
+                                        window.sogou_un.push({id: "985094",ele:test_adv});
+                                        $('#pre_adv').append('<script class="iclicashAD" src="//cdn.aiclk.com/jssdk/aisdk.js?aid=7609921"><\/script>');
+                                    }
+                                    $('.detail-recommend').append(that.recommend);
+                                    $('#build_adv').append('<script class="iclicashAD" src="//cdn.aiclk.com/jssdk/aisdk.js?aid=7769696"><\/script>');
+                                    that.buildTimer = setTimeout(function () {
+                                        (window.slotbydup = window.slotbydup || []).push({
+                                            id: "u3524087",
+                                            container: 'prod_adv',
+                                        });
+                                    }, 500);
+                                    that.getDataNum++;
+                                }else{
+                                    $('.detail-recommend').hide();
+                                }
+                            } else {
+                                that.polling = true;
+                                that.pollingNum++;
+                                // console.log(that.pollingNum)
+                            }
+                        },
+                        error: function error(_error) {
+                            console.log(_error);
+                        }
+                    });
+                },
+                getHotComment: function (ceshipindaoId, ceshiwenzhangId) {  // 获取热门评论
+                    var that = this;
+                    $.ajax({
+                        url: ctxs + '/mongodb/readCommentH5?channelId=' + ceshipindaoId + '&titleId=' + ceshiwenzhangId + '&tel_num=' + that.getString.tel_num,
+                        type: 'GET',
+                        dataType: 'jsonp',
+                        jsonp: "callback",
+                        jsonpCallback: "hotComent",
+                        success: function success(data) {
+                            // console.log({'hot':data})
+                            if(data.list.length !== 0 && data.list.length !== undefined){
+                                $('#hot-comment').show();
+                                data.list.map(function(item, i){
+                                    if(item.iferji == 1){
+                                        that.changeImg =  '<img class="new-thumbs" src="images/thumbs-option_14.png" alt="">';
+                                        that.changeSpan = '<span style="color: #e92323;margin-right: 5px;">'+item.likes +'</span>';
+                                    }else{
+                                        that.changeImg =  '<img class="new-option" data-id="'+item.id+'" src="images/thumbs-up_14.png" alt="">';
+                                        that.changeSpan = '<span style="margin-right: 5px;">'+item.likes +'</span>'
+                                    }
+                                    that.commentList = '';
+                                    if(item.commentList.length !== 0 && item.commentList !== undefined){
+                                        item.commentList.map(function(list, i){
+                                            if(i<3){
+                                                that.lookStatus = '<a href="reply://coin/share?channelId=ceshipindaoId&titleId=ceshiwenzhangId&id=' + item.id + '&tel_num=13121218704&nickName=' + item.uname+'" style="display: block;font-size: 0.28rem;color: #5077fd;text-decoration: none;">查看全部回复</a>'
+                                                return(
+                                                    that.commentList += '<p>\n' +
+                                                        '                            <span>'+list.uname+'：</span>\n' +
+                                                        '                            <span>'+list.msg+'</span>\n' +
+                                                        '                        </p>'
+                                                )
+                                            }
+                                        })
+                                    }
+                                    if(that.commentList !=''){
+                                        that.commentBack = '<div class="comment-callback">' +
+                                            that.commentList +
+                                            that.lookStatus+
+                                            '</div>'
+                                    }else {
+                                        that.commentBack = '';
+                                    }
+                                    return(
+                                       that.hotMore += '<a data-id="'+item.id+'" data-name="'+item.uname+'" class="newHotComment" style="display: block;color: #000;text-decoration: none;">'+
+                                        '<ul class="comment-list clearFix">'+
+                                        '<li>\n' +
+                                        '                                    <img src="'+item.headUrl+'" alt="">\n' +
+                                        '                                    </li>\n' +
+                                        '                                    <li>\n' +
+                                        '                                    <div class="comment-tittle clearFix">\n' +
+                                        '                                    <div>'+
+                                            '<p>'+item.uname+'</p>'+
+                                            '<p>'+item.address+'   '+new Date(item.create_time).Format("yyyy-MM-dd hh:mm:ss") +'</p>'+
+                                            '</div>\n' +
+                                        '                                <div>\n' +
+                                           that.changeSpan + that.changeImg +
+                                        '                                    </div>\n' +
+                                        '                                    </div>\n' +
+                                        '                                    <p class="comment-text">\n'
+                                                                   +item.msg+
+                                        '                            </p>\n' +
+                                           that.commentBack
+                                               +
+                                        '                                </li>\n' +
+                                        '                                </ul>\n' +
+                                        '                                </a>'
+                                    )
+                                })
+                                $('#hot-comment').append(that.hotMore);
+                                if(data.ifMore == 2){
+                                    $('#hot-comment').append('<a href="hotMore://coin/share?channelId=ceshipindaoId&titleId=ceshiwenzhangId&tel_num=22&tittle=' + encodeURI(that.infoData.items[0].title)+'" class="comment-more">更多热门评论</a>');
+                                };
+                                $('.newHotComment').click(function(){
+                                    // console.log($(this).attr('data-id'));
+                                    window.location.href="comment://coin/share?commentId=" + $(this).attr('data-id') + "&nickName=" + $(this).attr('data-name')
+                                });
+                                $('.new-thumbs').click(function(e){
+                                    e.stopPropagation();
+                                });
+                                $('.new-option').click(function(event){
+                                    event.stopPropagation();
+                                    var dataId = $(this).attr('data-id');
+                                    that.detailPraise(dataId);
+                                    $(this).attr('src','images/thumbs-option_14.png');
+                                    var spanNum = Number($(this).prev().text());
+                                    $(this).prev().text(spanNum +1).css('color','#e92323');
+                                    $(this).unbind("click");
+                                });
+                            }
+                        },
+                        error: function error(_error2) {
+                            console.log(_error2);
+                        }
+                    });
+                },
+                getNewComment: function (ceshipindaoId, ceshiwenzhangId, page, type, more) { // 获取最新评论
+                    var that = this;
+                    $.ajax({
+                        url: ctxs + '/mongodb/readComment2H5?channelId=' + ceshipindaoId + '&titleId=' + ceshiwenzhangId + '&pageIndex=' + page + '&type=' + type + '&tel_num=' + that.getString.tel_num,
+                        type: 'GET',
+                        dataType: 'jsonp',
+                        jsonp: "callback",
+                        jsonpCallback: "comment",
+                        success: function success(data) {
+                            // console.log({"new": data});
+                            that.newMore = data.list;
+                            that.total = data.count;
+                            that.renderDom(data.list);
+                        },
+                        error: function error(_error3) {
+                            console.log(_error3);
+                        }
+                    });
+                },
+                renderDom: function(data){
+                    var that = this;
+                    if(data.length !== 0 && data.length !== undefined){
+                        $('#new-comment').show();
+                        $('.new-comment-num').hide();
+                        $('.mint-loadmore-bottom').show();
+                        data.map(function(item, i){
+                            if(item.iferji == 1){
+                                that.newChangeImg =  '<img class="new-thumbs" src="images/thumbs-option_14.png" alt="">';
+                                that.newChangeSpan = '<span style="color: #e92323;margin-right: 5px;">'+item.likes +'</span>';
+                            }else{
+                                that.newChangeImg =  '<img data-id="'+item.id+'" class="new-option new-thumbs" src="images/thumbs-up_14.png" alt="">';
+                                that.newChangeSpan = '<span style="margin-right: 5px;">'+item.likes +'</span>'
+                            }
+                            // console.log(item)
+                            that.newCommentList = '';
+                            that.newCommentBack = '';
+                            if(item.commentList.length !== 0 && item.commentList !== undefined){
+                                if(item.commentList.length > 3){
+                                    that.newChangeComment = item.commentList.slice(0,3);
+                                }else{
+                                    // console.log(item.commentList)
+                                    that.newChangeComment = item.commentList;
+                                }
+                                that.newChangeComment.forEach(function(list, j){
+                                    that.newLookStatus = '<a href="reply://coin/share?channelId=ceshipindaoId&titleId=ceshiwenzhangId&id=' + item.id + '&tel_num=13121218704&nickName=' + item.uname+'" style="display: block;font-size: 0.28rem;color: #5077fd;text-decoration: none;">查看全部回复</a>'
+                                    that.newCommentList += '<p>\n' +
+                                        '                            <span>'+list.uname+'：</span>\n' +
+                                        '                            <span>'+list.msg+'</span>\n' +
+                                        '                        </p>'
+                                })
+                                if(that.newCommentList != ''){
+                                    that.newCommentBack = '<div class="comment-callback">' +
+                                    that.newCommentList +
+                                    that.newLookStatus+
+                                    '</div>'
+                                }else{
+                                    that.newCommentBack = '';
+                                }
+                            }
+                            return(
+                                that.newMoreList += '<a data-id="'+item.id+'" data-name="'+item.uname+'" class="newHotComment" style="display: block;color: #000;text-decoration: none;">'+
+                                    '<ul class="comment-list clearFix">'+
+                                    '<li>\n' +
+                                    '                                    <img src="'+item.headUrl+'" alt="">\n' +
+                                    '                                    </li>\n' +
+                                    '                                    <li>\n' +
+                                    '                                    <div class="comment-tittle clearFix">\n' +
+                                    '                                    <div>'+
+                                    '<p>'+item.uname+'</p>'+
+                                    '<p>'+item.address+'   '+new Date(item.create_time).Format("yyyy-MM-dd hh:mm:ss") +'</p>'+
+                                    '</div>\n' +
+                                    '                                <div>\n' +
+                                    that.newChangeSpan + that.newChangeImg +
+                                    '                                    </div>\n' +
+                                    '                                    </div>\n' +
+                                    '                                    <p class="comment-text">\n'
+                                    +item.msg+
+                                    '                            </p>\n' +
+                                    that.newCommentBack+
+                                    '                                </li>\n' +
+                                    '                                </ul>\n' +
+                                    '                                </a>'
+                            )
+                        })
+                        $('#new-comment').append(that.newMoreList);
+                        $('.newHotComment').click(function(){
+                            // console.log($(this).attr('data-id'));
+                            window.location.href="comment://coin/share?commentId=" + $(this).attr('data-id') + "&nickName=" + $(this).attr('data-name')
+                        })
+                        $('.new-thumbs').click(function(e){
+                            e.stopPropagation();
+                        });
+                        $('.new-option').click(function(event){
+                            event.stopPropagation();
+                            var dataId = $(this).attr('data-id');
+                            that.detailPraise(dataId);
+                            $(this).attr('src','images/thumbs-option_14.png');
+                            var spanNum = Number($(this).prev().text());
+                            $(this).prev().text(spanNum +1).css('color','#e92323');
+                            $(this).unbind("click");
+                        })
+                    }else{
+                        $('.new-comment-num').show();
+                    }
+                },
+                loadMore: function () {
+                    // 上划刷新
+                    var that = this;
+                    // console.log(this.total);
+                    if (this.total !== 0) {
+                        var page = Math.floor(this.total / 10);
+                        that.scrollNum++;
+                        if (that.scrollNum <= page && this.total >= 10) {
+                            $.ajax({
+                                url: ctxs + '/mongodb/readComment2H5?channelId=' + that.getString.channelId + '&titleId=' + that.getString.titleId + '&pageIndex=' + that.scrollNum + '&type=' + '2' + '&tel_num=' + that.getString.tel_num,
+                                type: 'GET',
+                                dataType: 'jsonp',
+                                jsonp: "callback",
+                                jsonpCallback: "comment",
+                                success: function success(data) {
+                                    that.newMore = data.list.concat(that.newMore);
+                                    that.renderDom(that.newMore);
+                                    if (that.newMore.length === that.total) {
+                                        $('.loadmore-bottom-span').text('已经到底了哦^_^ ');
+                                    }
+                                },
+                                error: function error(_error4) {
+                                    toast('网络连接失败！');
+                                }
+                            });
+                        } else {
+                            $('.loadmore-bottom-span').text('已经到底了哦^_^ ');
+                        }
+                    } else {
+                        $('.loadmore-bottom-span').hide();
+                        return false;
+                    }
+                },
+                detailPraise: function (id) {
+                    // 二级点赞
+                    var that = this;
+                    $.ajax({
+                        url: ctxs + '/mongodb/twoPraiseH5?channelId=' + this.getString.channelId + '&titleId=' + this.getString.titleId + '&tel_num=' + this.getString.tel_num + '&id=' + id,
+                        type: 'GET',
+                        dataType: 'jsonp',
+                        jsonp: "callback",
+                        jsonpCallback: "praise",
+                        success: function success(data) {
+                            // console.log({'detailpraise': data});
+                            if (data.status === 100) {
+                                // console.log(data);
+                            } else {
+                                // toast(data.msg);
+                            }
+                        }
+                    });
+                },
+                cutString: function (str, len) {
+                    var strlen = 0;
+                    var s = '';
+                    for (var i = 0; i < str.length; i++) {
+                        s = s + str.charAt(i);
+                        if (str.charCodeAt(i) > 128) {
+                            strlen = strlen + 2;
+                            if (strlen >= len) {
+                                return s.substring(0, s.length - 1) + '...';
+                            }
+                        } else {
+                            strlen = strlen + 1;
+                            if (strlen >= len) {
+                                return s.substring(0, s.length - 2) + '...';
+                            }
+                        }
+                    }
+                    return s;
+                },
+                formatImg: function (html) {
+                    // 图片过滤
+                    var newContent = html.replace(/<img[^>]*>/gi, function (match, capture) {
+                        match = match.replace(/(style=\"(.*?)\")|(src=\"http:\/\/p2.ifengimg.com\/a\/2016\/0810\/204c433878d5cf9size1_w16_h16.png\")|((min-height=\"(.*?)\")|(max-height=\"(.*?)\")|(height=\"(.*?)\"))|((min-width=\"(.*?)\")|(max-width=\"(.*?)\")|(width=\"(.*?)\"))/gi, '');
+                        return match;
+                    });
+                    return newContent;
+                },
+            }
+            clearInterval(thisPage.timer);
+            clearTimeout(thisPage.buildTimer);
+            // clearTimeout(thisPage.addTimer);
+            thisPage.created();
+            window.getUpdateComment = function () { // 回调评论
+                // $('.mint-loadmore-bottom').show().text('已经到底了哦^_^');
+                // thisPage.newMoreList = "";
+                // $('.new-comment-h3').nextAll().remove();
+                // thisPage.getNewComment(thisPage.getString.channelId, thisPage.getString.titleId, 0, '2', 'newMore');
+        };
+        window.getScroll = function (scrollY) { //安卓评论回调
+            if (thisPage.listener) {
+                var defHeight = Number($('.detail-content').height());
+                if (defHeight > 1500 && thisPage.listener) {
+                    $('.down-load').show();
+                    $('.detail-content').addClass('detailHeight');
+                }
+            }
+            var bodyHeight = Number($('body').height());
+            var windowHeight = window.screen.availHeight;
+            var addNum = Number(windowHeight) + Number(scrollY);
+            if (addNum - bodyHeight >= 0 && addNum - bodyHeight < 165) {
+                // thisPage.loadMore();
+            }
+        };
+        $('.down-load').click(function () { //详情页折叠
+            $(this).hide();
+            $('.detail-content').removeClass("detailHeight");
+            thisPage.listener = false;
+        });
+        // thisPage.addTimer = setTimeout(function () {
+        //     if($('#adContent7673155').selector){
+        //         var bottomNum = Number($('#test_adv_bottom').offset().top) -  Number($('#test_adv_top').offset().top);
+        //         // console.log(bottomNum)
+        //         if(bottomNum < 75){
+        //             (function () {
+        //                 (window.slotbydup = window.slotbydup || []).push({
+        //                     id: "u3532719",
+        //                     container: 'test_adv',
+        //                 });
+        //             })();
+        //         }
+        //
+        //     }
+        // },1000)
+    });
+</script>
+<script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
+<script async="async" src="http://src.inte.sogoucdn.com/wap/js/aw.js"></script>
+</body>
+</html>

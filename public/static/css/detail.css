@@ -1,0 +1,331 @@
+@keyframes myfirst {
+    from {
+        padding-top: 10px;
+    }
+    to {
+        padding-top: 5px;
+    }
+
+}
+@-moz-keyframes myfirst /* Firefox */ {
+    from {
+        padding-top: 10px;
+    }
+    to {
+        padding-top: 5px;
+    }
+
+}
+@-webkit-keyframes myfirst /* Safari 和 Chrome */ {
+    from {
+        padding-top: 10px;
+    }
+    to {
+        padding-top: 5px;
+    }
+
+}
+@-o-keyframes myfirst /* Opera */ {
+    from {
+        padding-top: 10px;
+    }
+    to {
+        padding-top: 5px;
+    }
+
+}
+.details-container {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: relative;
+    background: #fff;
+}
+.details-container .detail-content {
+    padding: 0 0.3rem;
+    text-align: justify;
+}
+.details-container .detail-content h3 {
+    font-size: 0.48rem;
+    padding: 0.45rem 0 0.5rem;
+    font-weight: 800;
+}
+.details-container .detail-content .detail-time {
+    padding-bottom: 0.22rem;
+    border-bottom: 1px solid #e6e6e6;
+    margin-bottom: 0.45rem;
+}
+.details-container .detail-content .detail-time span {
+    font-size: 0.2rem;
+    color: #999;
+}
+.details-container .detail-content .detail-origin {
+    margin-bottom: 0.5rem;
+}
+.details-container .detail-content .detail-origin span {
+    font-size: 0.24rem;
+    color: #b5b5b5;
+}
+.details-container .detail-content .detail-advertisement {
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid #dfdfdf;
+}
+.details-container .detail-content .detail-advertisement > img {
+    width: 100%;
+    display: block;
+}
+.details-container .detail-content .details-comment {
+    width: 5.05rem;
+    margin: 0.4rem auto;
+}
+.details-container .detail-content .details-comment li {
+    width: 2.2rem;
+    height: 0.7rem;
+    line-height: 0.68rem;
+    text-align: center;
+    border-radius: 0.35rem;
+    border: 2px solid #eaeaea;
+    float: left;
+    font-size: 0.3rem;
+}
+.details-container .detail-content .details-comment li:nth-child(1) .articleSpan {
+    color: #e80000;
+}
+.details-container .detail-content .details-comment li:nth-child(1) img {
+    width: 0.32rem;
+    vertical-align: sub;
+}
+.details-container .detail-content .details-comment li:nth-child(2) {
+    float: right;
+}
+.details-container .detail-content .details-comment li:nth-child(2) img {
+    width: 0.34rem;
+    vertical-align: sub;
+}
+.details-container .detailHeight {
+    height: 1400px;
+    overflow: hidden;
+}
+.details-container .down-load-translate {
+    width: 0.34rem;
+    margin: 0 auto;
+    animation: myfirst 0.5s linear 0s infinite alternate;
+    /* Firefox: */
+
+    -moz-animation: myfirst 0.5s linear 0s infinite alternate;
+    /* Safari 和 Chrome: */
+
+    -webkit-animation: myfirst 0.5s linear 0s infinite alternate;
+    /* Opera: */
+
+    -o-animation: myfirst 0.5s linear 0s infinite alternate;
+}
+.details-container .news_part_all {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 74px;
+    height: 2rem;
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0), #ffffff);
+}
+.details-container .down-load {
+    position: relative;
+    height: 75px;
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+    padding-top: 0.3rem;
+}
+.details-container .down-load p {
+    font-size: 0.42rem;
+    color: #48aeff;
+}
+.details-container .down-load img {
+    width: 0.34rem;
+    display: block;
+}
+.details-container .detail-advertisement-last {
+    width: 100%;
+    padding: 0.3rem 0.3rem 0.25rem;
+}
+.details-container .detail-advertisement-last p {
+    font-size: 0.3rem;
+    margin-bottom: 0.2rem;
+}
+.details-container .detail-advertisement-last img {
+    width: 6.9rem;
+    height: 2rem;
+}
+.details-container .detail-recommend {
+    overflow: hidden;
+    padding: 0.4rem 0.3rem 0;
+}
+.details-container .detail-recommend h3 {
+    position: relative;
+    height: 0.45rem;
+}
+.details-container .detail-recommend h3 span {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    width: 1.4rem;
+    padding-bottom: 0.12rem;
+    font-size: 0.34rem;
+    border-bottom: 3px solid #1f7cff;
+}
+.details-container .detail-recommend .detail-recommend-list {
+    padding: 0.24rem 0;
+    border-top: 1px solid #f2f1f1;
+    margin-top: -2px;
+}
+.details-container .detail-recommend .detail-recommend-list img {
+    display: block;
+    float: left;
+    /*width: 32.6086%;*/
+
+    /*height: 1.5rem;*/
+
+    width: 106px;
+    height: 80px;
+    margin-right: 10px;
+}
+.details-container .detail-recommend .detail-recommend-list > div {
+    /*height: 1.5rem;*/
+
+    height: 80px;
+    float: left;
+    width: 63.0434%;
+    position: relative;
+}
+.details-container .detail-recommend .detail-recommend-list > div p:nth-child(1) {
+    /*font-size: 0.32rem;*/
+
+    font-size: 16px;
+    line-height: 0.5rem;
+    display: -webkit-box;
+    overflow: hidden;
+    white-space: normal !important;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    -webkit-box-orient: vertical;
+    font-weight: normal;
+    -webkit-line-clamp: 2;
+    text-align: justify;
+}
+.details-container .detail-recommend .detail-recommend-list > div p:nth-child(2) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 0.25rem;
+    color: #999;
+}
+.details-container .hot-comment {
+    padding: 0.5rem 0.3rem 0;
+}
+.details-container .hot-comment h3 span:nth-child(1) {
+    display: inline-block;
+    width: 0.05rem;
+    height: 0.32rem;
+    background-color: #da2c23;
+    margin-right: 0.1rem;
+    vertical-align: middle;
+}
+.details-container .hot-comment h3 span:nth-child(2) {
+    font-size: 0.32rem;
+}
+.details-container .hot-comment .comment-list {
+    padding: 0.48rem 0 0.3rem;
+    border-bottom: 1px solid #ededed;
+}
+.details-container .hot-comment .comment-list li:nth-child(1) {
+    width: 13.0434%;
+    float: left;
+}
+.details-container .hot-comment .comment-list li:nth-child(1) img {
+    display: block;
+    width: 0.72rem;
+    height: 0.72rem;
+    border-radius: 0.72rem;
+}
+.details-container .hot-comment .comment-list li:nth-child(2) {
+    width: 86.6666%;
+    float: right;
+}
+.details-container .hot-comment .comment-list li:nth-child(2) .comment-tittle {
+    margin-bottom: 0.35rem;
+}
+.details-container .hot-comment .comment-list li:nth-child(2) .comment-tittle > div:nth-child(1) {
+    width: 75.2508%;
+    float: left;
+}
+.details-container .hot-comment .comment-list li:nth-child(2) .comment-tittle > div:nth-child(1) p:nth-child(1) {
+    font-size: 0.3rem;
+    color: #4b78b2;
+}
+.details-container .hot-comment .comment-list li:nth-child(2) .comment-tittle > div:nth-child(1) p:nth-child(2) {
+    font-size: 0.24rem;
+    color: #b5b5b5;
+}
+.details-container .hot-comment .comment-list li:nth-child(2) .comment-tittle > div:nth-child(2) {
+    width: 24.7491%;
+    float: right;
+    text-align: right;
+    height: 0.7rem;
+    line-height: 0.7rem;
+}
+.details-container .hot-comment .comment-list li:nth-child(2) .comment-tittle > div:nth-child(2) span {
+    font-size: 0.26rem;
+    color: #b2b2b2;
+}
+.details-container .hot-comment .comment-list li:nth-child(2) .comment-tittle > div:nth-child(2) .detailColor {
+    color: #e92323;
+}
+.details-container .hot-comment .comment-list li:nth-child(2) .comment-tittle > div:nth-child(2) img {
+    width: 0.3rem;
+}
+.details-container .hot-comment .comment-list li:nth-child(2) .comment-text {
+    font-size: 0.3rem;
+}
+.details-container .hot-comment .comment-list li:nth-child(2) .comment-callback {
+    padding: 0.18rem 0.2rem 0.22rem;
+    margin-top: 0.35rem;
+    background-color: #f6f6f6;
+}
+.details-container .hot-comment .comment-list li:nth-child(2) .comment-callback p {
+    font-size: 0.28rem;
+    margin-bottom: 0.1rem;
+}
+.details-container .hot-comment .comment-list li:nth-child(2) .comment-callback p span:nth-child(1) {
+    color: #4b78b2;
+}
+.details-container .hot-comment .comment-list li:nth-child(2) .comment-callback > div {
+    display: block;
+    font-size: 0.28rem;
+    color: #5077fd;
+    text-decoration: none;
+}
+.details-container .hot-comment .comment-more {
+    line-height: 0.7rem;
+    text-align: center;
+    font-size: 0.26rem;
+    display: block;
+    margin: 0.7rem auto 0;
+    width: 85.5072%;
+    height: 0.7rem;
+    border: 1px solid #d8d8d8;
+    border-radius: 0.35rem;
+    color: #000;
+    text-decoration: none;
+}
+.details-container .new-comment {
+    padding: 0 0.3rem;
+}
+.details-container .noComment {
+    margin-top: 100px;
+}
+.mint-loadmore-bottom {
+    text-align: center;
+    height: 0.88rem;
+    line-height: 0.88rem;
+}
